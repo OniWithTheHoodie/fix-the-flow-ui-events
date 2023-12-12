@@ -91,7 +91,7 @@ body {
   bottom: 6.4em;
 }
 
-/* 360 animation */
+/* 360 animation keyframe heeft een soort variable naam die ik kan gebruiken in animation syntax */
 @keyframes rotateAnimation {
   from {
     transform: rotate(0deg);
@@ -101,7 +101,7 @@ body {
   }
 }
 
-/* wheel animation voor JS */
+/* wheel animation styling voor JS die ik oproep vanuit de keyframe genaamd rotate animation */
 .show-spin {
   animation: rotateAnimation 2s linear infinite;
 }
