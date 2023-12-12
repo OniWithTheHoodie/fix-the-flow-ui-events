@@ -16,66 +16,94 @@ body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
-  background: var(--secondary);
-}
-section {
-  max-width: 90vw;
-}
-a {
-  display: inline-block;
-  margin: 0.2em;
-  padding: 0.4em 0.8em;
-  background: var(--secondary);
-  color: var(--highlight-primary);
-  border: var(--line) solid var(--highlight-primary);
-  border-radius: var(--pill);
-  font-weight: normal;
-  text-decoration: none;
-}
-a:hover {
-  color: var(--primary);
-  border-color: var(--primary);
 }
 
-/* UI Event Classes */
 
-/* Jump animation on the interaction link */
-a:nth-of-type(12) {
+/* wheel */
+.wheel {
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  background: radial-gradient(black 45%, black 5%, gray 50%);
+  border: black solid 1px;
+  cursor: pointer;
+  
+}
+
+.line1 {
+  background: gray;
+  width: 5%;
+  height: 35%;
   position: relative;
-  background: var(--highlight-secondary);
-  color: var(--secondary);
-  border-color: var(--secondary);
+  left: 2.3em;
+  top: 0.8em;
+  right: 2em;
 }
 
-.jump {
-  animation-name: jump;
-  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-  animation-duration: 1.2s;
-  animation-iteration-count: 1;
+.line2 {
+  background: gray;
+  width: 5%;
+  height: 35%;
+  rotate: 65deg;
+  position: relative;
+  bottom: 0.4em;
+  left: 3.1em;
 }
 
-@keyframes jump {
-  0% {
-    transform: scale(1, 1) translateY(0);
+.line3 {
+  background: gray;
+  width: 5%;
+  height: 35%;
+  rotate: 310deg;
+  position: relative;
+  left: 2.9em;
+  bottom: 1.2em;
+}
+
+.line4 {
+  background: gray;
+  width: 5%;
+  height: 35%;
+  rotate: 45deg;
+  position: relative;
+  left: 1.7em;
+  bottom: 2.8em;
+}
+
+.line5 {
+  background: gray;
+  width: 5%;
+  height: 35%;
+  rotate: 290deg;
+  position: relative;
+  left: 1.5em;
+  bottom: 5.5em;
+}
+
+.inner-circle-wheel{
+  background: radial-gradient(gray 50%, black 50%);
+  width: 11.5%;
+  height: 11.5%;
+  border-radius: 50%;
+  rotate: 300deg;
+  position: relative;
+  left: 2.2em;
+  bottom: 6.4em;
+}
+
+/* 360 animation */
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
   }
-  10% {
-    transform: scale(1.1, 0.9) translateY(0);
+  to {
+    transform: rotate(360deg);
   }
-  30% {
-    transform: scale(0.9, 1.1) translateY(-5rem) rotate(10deg);
-  }
-  50% {
-    transform: scale(1.05, 0.95) translateY(0);
-  }
-  57% {
-    transform: scale(1, 1) translateY(-0.5rem) rotate(-2deg);
-  }
-  64% {
-    transform: scale(1, 1) translateY(0);
-  }
-  100% {
-    transform: scale(1, 1) translateY(0);
-  }
+}
+
+/* wheel animation voor JS */
+.show-spin {
+  animation: rotateAnimation 2s linear infinite;
 }
 
 /* Jouw animaties */
