@@ -23,8 +23,7 @@ body {
 section {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
 }
 
 .square-background {
@@ -32,6 +31,7 @@ section {
   height: 6em;
   background: gray;
   margin-left: 2em;
+  margin-bottom: 1em;
 }
 /******************************************************
 *                                                     *
@@ -180,6 +180,7 @@ section {
   margin-top: 5em;
   background: conic-gradient(#E4F6F8, white, #E4F6F8, white, #E4F6F8);
   border-radius: solid 1px black;
+  z-index: 1;
 }
 
 /******************************************************
@@ -294,7 +295,7 @@ button {
 
 /******************************************************
 *                                                     *
-*                   verplaats object                  *
+*                     draai object                    *
 *                                                     *
 *******************************************************/
 .box {
@@ -302,4 +303,68 @@ button {
   height: 50px;
   background-color: blue;
   margin: 10px;
+}
+
+/******************************************************
+*                                                     *
+*                     Card flip                       *
+*                                                     *
+*******************************************************/
+
+.square-background {
+  perspective: 1000px;
+}
+
+.card {
+  width: 5em;
+  height: 5em;
+  background-color: #3498db;
+  margin: 0.5em;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+
+.card:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  background-color: #e74c3c;
+  transform: rotateY(180deg);
+}
+
+.card-flip {
+  transform: rotateY(180deg);
+}
+
+/******************************************************
+*                                                     *
+*                  bewegend vierkant                  *
+*                                                     *
+*******************************************************/
+
+
+
+.moving-div {
+  width: 50px;
+  height: 50px;
+  background-color: #e74c3c;
+  position: absolute;
+}
+
+@keyframes moveRight {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 50px); /* Adjust width of moving-div */
+  }
+}
+
+.floating {
+  animation: moveRight 4s linear infinite; /* Adjust duration and timing function as needed */
 }

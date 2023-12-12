@@ -119,6 +119,7 @@ function RocketPressed(e) {
 let button = document.querySelector('button');
 
 // function met de naam random als de button gedrukt wordt moet het de berekening terug sturen
+// math.Random berekent tussen 0 en 1 * number + 1
 function random(number) {
   return Math.floor(Math.random() * (number + 1));
 }
@@ -130,8 +131,9 @@ button.onclick = () => {
 };
 
 /////////////////////////
-//verplaats object
+//rotate object
 ////////////////////////
+
 //voegt een event listener voor de devicemotion op de scherm als er motie is wordt de handlemotion functie uitgevoerd
 window.addEventListener('devicemotion', handleMotion);
 
@@ -164,5 +166,38 @@ function handleMotion(event) {
     console.log(boxes);
   });
 }
+
+
+/////////////////////////
+//Card flip
+////////////////////////
+//ik heb een variable gemaakt deze target de kaart
+let card = document.querySelector('.card');
+console.log(card);
+
+// ik zeg hier met EventListener dat als de muis op de kaart staat en eraf gehaald wordt er wat moet gebeuren
+card.addEventListener('mouseout', flip);
+console.log(card);
+
+//met deze functie voeren we de flip uit met de muis functie mouseout
+function flip(){
+  card.classList.toggle('card-flip');
+  console.log('het spint')
+}
+
+/////////////////////////
+//Bewegend vierkant
+////////////////////////
+let MovingObject = document.querySelector('.moving-div');
+console.log(MovingObject);
+
+MovingObject.addEventListener('mouseenter', gravityLeft);
+console.log(MovingObject);
+
+function gravityLeft() {
+  MovingObject.classList.toggle('floating');
+  console.log('het beweegt van links naar rechts');
+}
+
 
 
