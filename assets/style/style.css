@@ -18,6 +18,10 @@ body {
   font-size: 2rem;
 }
 
+section {
+  display: flex;
+  flex-direction: row;
+}
 
 /* wheel */
 .wheel {
@@ -106,4 +110,33 @@ body {
   animation: rotateAnimation 2s linear infinite;
 }
 
-/* Jouw animaties */
+/* square color effect */
+
+.square {
+  width: 5em;
+  height: 5em;
+  margin-left: 1em;
+  border-radius: 1%;
+  background: linear-gradient(45deg, #FFD700 30%, black 50%);
+  border: 0.1em solid gray;
+  background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.show--sqaure--color {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
