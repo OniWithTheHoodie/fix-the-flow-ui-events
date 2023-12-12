@@ -188,12 +188,15 @@ function flip(){
 /////////////////////////
 //Bewegend vierkant
 ////////////////////////
+// Moving-div geselecteerd uit de DOm
 let MovingObject = document.querySelector('.moving-div');
 console.log(MovingObject);
 
+// Wil dat er wat gebeurd als mouseenter event wordt gebruikt
 MovingObject.addEventListener('mouseenter', gravityLeft);
 console.log(MovingObject);
 
+// als muiseenter functie wordt gebruikt door met de muis op het element te staan gaat de classlist in effect waar de vierkant van links naar rechts gaat
 function gravityLeft() {
   MovingObject.classList.toggle('floating');
   console.log('het beweegt van links naar rechts');
