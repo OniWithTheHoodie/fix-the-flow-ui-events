@@ -96,7 +96,7 @@ document.addEventListener('keypress', function(event) {
 
 // ik target de image in mijn mijn hmtl en zet het in een variable
 let rocket = document.querySelector('img');
-console.log(rocket)
+console.log(rocket);
 
 // met de Eventlistener zeg ik dat als de toetsenbord gedrukt de functie RocketPressed wat moet doen
 document.addEventListener('keydown', RocketPressed);
@@ -110,3 +110,59 @@ function RocketPressed(e) {
     console.log('het raket is gelanceerd');
   }
 }
+
+/////////////////////////
+//Button veranderd kleur
+////////////////////////
+
+// variable voor de button
+let button = document.querySelector('button');
+
+// function met de naam random als de button gedrukt wordt moet het de berekening terug sturen
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
+}
+
+// Als de button is geklikt is veranderd de achtergrond met verschillende kleuren
+button.onclick = () => {
+  let randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = randomColor;
+};
+
+/////////////////////////
+//verplaats object
+////////////////////////
+//voegt een event listener voor de devicemotion op de scherm als er motie is wordt de handlemotion functie uitgevoerd
+window.addEventListener('devicemotion', handleMotion);
+
+//ik fetch hier mee uit de DOM ID square en class box
+function handleMotion(event) {
+  let square = document.getElementById('square');
+  const boxes = document.querySelectorAll('.box');
+  console.log(square);
+  console.log(boxes);
+
+  // hiermee pak ik de rotatie uit X,Y en Z as van RotationRate property van de devicemotion. als er geen rotatie beschikbaar is gaat het default terug naar 0
+  let xRotation = event.rotationRate.alpha || 0;
+  let yRotation = event.rotationRate.beta || 0;
+  let zRotation = event.rotationRate.gamma || 0;
+  console.log(xRotation);
+  console.log(yRotation);
+  console.log(zRotation);
+
+  // dit update de transform van de square element en voegt een rotatie toe van de X,Y en Z as gebaseerd op de rotatieRate
+  square.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg) rotateZ(${zRotation}deg)`;
+  console.log(square);
+
+  // dit is een forEach loop interactie legt met de element box
+  // in de loop berekent het de roation variable met index + 1 vermijden we dat het begint van 0graden
+  // en vervolgens doe ik 45 * 1
+  // box.style.transform veranderd de positie van de box
+  boxes.forEach((box, index) => {
+    let rotation = 45 * (index + 1);
+    box.style.transform = `rotate(${rotation}deg)`;
+    console.log(boxes);
+  });
+}
+
+
