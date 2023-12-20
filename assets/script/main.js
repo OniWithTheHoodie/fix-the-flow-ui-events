@@ -105,6 +105,7 @@ console.log(document);
 // Ik heb hier de functie ROcketpressed de key 38 gegeven dat is de pijl omhoog
 // ik heb met de classlist de class fly opgeroepen als de pijl naar boven wordt gedrukt vliegt het raket omhoog
 function RocketPressed(e) {
+  console.log(e);
   if (e.keyCode === 38) {
     rocket.classList.toggle('fly');
     console.log('het raket is gelanceerd');
@@ -182,7 +183,7 @@ console.log(card);
 //met deze functie voeren we de flip uit met de muis functie mouseout
 function flip(){
   card.classList.toggle('card-flip');
-  console.log('het spint')
+  console.log('het spint');
 }
 
 /////////////////////////
